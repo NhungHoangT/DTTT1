@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+    <div class="main">
+        <form action="" method="POST" class="form" id="form-2">
+            <h3 class="heading">Đăng nhập vào VSH Movie</h3>
+
+            <div class="spacer"></div>
+
+            <div class="form-group">
+                <label for="fullname" class="form-label">Tên đầy đủ</label>
+                <input id="fullname" name="fullname" type="text" placeholder="VD: Nhung Hoàng" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <button class="form-submit">Đăng Nhập</button>
+        </form>
+    </div>
+</body>
+
+<script src="./validdation.js"></script>
+
+<script>
+    //Mong muốn của chúng ta trong tương lai
+    Validator({
+        form: '#form-2',
+        formGroup: '.form-group',
+        errorSelector: '.form-message',
+        rules: [
+            Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'),
+            Validator.minLength('#password', 8),
+        ],
+        onSubmit: function(data) {
+            //call API
+            console.log(data);
+        }
+    });
+</script>
+
+</html>
